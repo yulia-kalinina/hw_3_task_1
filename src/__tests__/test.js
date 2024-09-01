@@ -1,17 +1,22 @@
-import calculateLifeBar from "../lifebar";
+import showLifeBar from "../lifebar";
 
-const dataList = [
-  ["green", 50, "healthy"],
-  ["yellow", 15, "wounded"],
-  ["red", 5, "critical"],
-];
+test("testing show lifebar with healthy status", () => {
+  const heroObj = { name: "Маг", health: 90 };
 
-const handler = test.each(dataList);
+  const result = showLifeBar(heroObj);
+  expect(result).toBe("healthy");
+});
 
-handler(
-  "testing function with %s status and %i health",
-  (_, health, expected) => {
-    const result = calculateLifeBar(health);
-    expect(result).toBe(expected);
-  }
-);
+test("testing show lifebar with wounded status", () => {
+  const heroObj = { name: "Маk", health: 20 };
+
+  const result = showLifeBar(heroObj);
+  expect(result).toBe("wounded");
+});
+
+test("testing show lifebar with critical status", () => {
+  const heroObj = { name: "Маd", health: 5 };
+
+  const result = showLifeBar(heroObj);
+  expect(result).toBe("critical");
+});

@@ -1,26 +1,11 @@
-const lifeBar = {
-    green: {
-        name: 'Маг', 
-        health: 50,
-    },
-    yellow: {
-        name: 'Lan', 
-        health: 15,
-    },
-    red: {
-        name: 'Маг', 
-        health: 5,
-    },
-};
-
-export default function calculateLifeBar(health) {
-    if(health >= lifeBar.green.health) {
-        return 'healthy';
-    };
-    if(health >= lifeBar.yellow.health) {
-        return 'wounded';
-    };
-    if(health < lifeBar.yellow.health) {
-        return 'critical';
-    };
+export default function showLifeBar(obj) {
+  let result = "";
+  if (obj.health >= 50) {
+    result = "healthy";
+  } else if (obj.health >= 15) {
+    result = "wounded";
+  } else if (obj.health < 15) {
+    result = "critical";
+  }
+  return result;
 }
